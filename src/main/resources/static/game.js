@@ -1,4 +1,4 @@
-const API_URL = 'https://localhost/'
+const API_URL = 'https://ancient-atoll-38572.herokuapp.com/'
 
 let gamesList
 
