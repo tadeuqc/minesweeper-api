@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <script src="game.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <title>Minesweeper</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="menu">
+            <div class="menuActions">
+                <button id="newGame" class="newGame">New Game</button>
+                <button id="resumeGame" class="resumeGame">Resume Game</button>
+            </div>
+        </div>
+        <div ID="gameInfo">
+            <p class="gameID"></p>
+        </div>
+    </div>
+
+    <div id="newGameModal" class="modal">
+        <div class="modal-content">
+            <p><label for="playerName">Player Name:</label></p>
+            <input type="text" name="playerName" id="playerName"/>
+            <div class="gameSize">
+                <p>Size:</p>
+                <input type="radio" name="size" id="9x9" value="9" />
+                <label for="9x9">9x9</label>
+                <input type="radio" name="size" id="15x15" value="15" />
+                <label for="15x15">15x15</label>
+                <input type="radio" name="size" id="30x30" value="30" />
+                <label for="30x30">30x30</label>
+            </div>
+            <div class="bombsSlider">
+                <p><label for="bomb-range" id="bomb-lbl">Bombs: 1</label></p>
+                <input type="range" min="1" max="10" value="1" class="slider" id="bomb-range">
+            </div>
+            <div class="modalActions">
+                <button id="new-ok" class="ok">Ok</button>
+                <button id="new-cancel" class="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="resumeGameModal" class="modal">
+        <div class="modal-content">
+            <p><label for="gameId">GameId:</label></p>
+            <input type="text" name="gameId" id="gameId"/>
+            <div class="modalActions">
+                <button id="resume-ok" class="ok">Ok</button>
+                <button id="resume-cancel" class="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
