@@ -142,9 +142,19 @@ function drawBoard(response) {
             if(cellStatus.status === 'HAS_MINE') {
                 cell.innerHTML = '💣'
             }
+            if(cellStatus.status === 'FLAG') {
+                cell.innerHTML = '🔴'
+            }
+            if(cellStatus.status === 'QUESTION') {
+                cell.innerHTML = '?'
+            }
             cell.addEventListener('click', function(e) {
                 play(cell, 'PLAY')
             })
+            cell.oncontextmenu = function(e) {
+                e.preventDefault()
+                play(cell, 'FLAG')
+            }
             newBoard.appendChild(cell)
         }
     }
@@ -170,7 +180,6 @@ function play(cell, action) {
             return Promise.reject(response);
         }
     }).then(function (data) {
-        console.log(data)
         gameStatus = data.status
         if (gameStatus !== 'RUNNING') {
             alert(`You ${gameStatus.toLowerCase()}!`)
@@ -230,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newgameOkButton.addEventListener('click', () => {
 
         createNewGame(gameSize,bombs,playerInput.value)
+        alert('Instructions -> Click: Make a move, Right Click: Flag or Question! Good Luck!')
         closeModal(newGameModal)
     });
 
